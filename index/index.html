@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Rocket Game</title>
+</head>
+
+<body>
+    <div class="gameArea"></div>
+    <div id="rocket"></div>
+
+    <!-- 점수 표시 -->
+    <div class="score-container">
+        Score: <span id="score">0</span>
+    </div>
+
+    <!-- 체력 바와 HP 레이블 -->
+    <div class="health-container">
+        <div>HP</div>
+        <div class="health-bar">
+            <div class="health-segment" id="health1"></div>
+            <div class="health-segment" id="health2"></div>
+            <div class="health-segment" id="health3"></div>
+            <div class="health-segment" id="health4"></div>
+            <div class="health-segment" id="health5"></div>
+        </div>
+    </div>
+
+    <!-- 게임 오버 메시지와 다시하기 버튼 -->
+    <div id="gameOver">
+        Game Over
+        <div id="newHighScore" style="display: none;"></div>
+        <button id="retryButton">다시하기</button>
+        <div id="highScore">최고 Score: 0</div>
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+
+</html>

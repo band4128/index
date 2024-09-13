@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+.gameArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('./img/star.png') repeat;
+    animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+#rocket {
+    z-index: 9999;
+    position: absolute;
+    width: 65px;
+    height: 90px;
+    left: calc(50% - 37.5px);
+    bottom: 10%;
+    background-image: url('./img/rocket.png');
+    background-size: cover;
+    transition: bottom 0.1s, left 0.1s;
+}
+
+#rocket.hit-flash {
+    animation: hitFlash 0.1s step-start 10;
+}
+
+@keyframes hitFlash {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.health-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+
+.health-bar {
+    width: 200px;
+    height: 30px;
+    background-color: red;
+    border: 2px solid white;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.health-segment {
+    flex: 1;
+    border-right: 2px solid black;
+}
+
+.health-segment:last-child {
+    border-right: none;
+}
+
+.health-segment.lost {
+    background-color: white;
+}
+
+#shield-bar {
+    background-color: skyblue; /* 보호막 색상 */
+}
+
+#shield-bar .health-segment {
+    border-right: 2px solid black;
+}
+
+#shield-bar .health-segment:last-child {
+    border-right: none;
+}
+
+#shield-bar .health-segment.lost {
+    background-color: skyblue; /* 보호막 색상 */
+}
+
+.meteor {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    z-index: 9998;
+}
+
+.slow-meteor {
+    background-image: url('./img/slow.png');
+    background-size: cover;
+    animation: fallAndRotate 5s linear infinite;
+}
+
+.fast-meteor {
+    background-image: url('./img/fast.png');
+    background-size: cover;
+    animation: fallAndRotateFast 2.5s linear infinite;
+}
+
+.big-meteor {
+    width: 200px;
+    height: 200px;
+    background-image: url('./img/big.png');
+    background-size: cover;
+    animation: fallAndRotateBig 10s linear infinite;
+}
+
+.oil-drum {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('./img/oil.png');
+    background-size: cover;
+    animation: fallAndRotate 5s linear infinite;
+    z-index: 9997;
+}
+
+@keyframes fallAndRotate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fallAndRotateFast {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fallAndRotateBig {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 60px;
+    display: none;
+    text-align: center;
+}
+
+#retryButton {
+    display: none;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 30px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.score-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+#highScore {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#newHighScore {
+    color: yellow;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.rotateAndFall {
+    animation: rotateAndFall 2s forwards;
+}
+
+@keyframes rotateAndFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
